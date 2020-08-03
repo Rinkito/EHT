@@ -1,9 +1,5 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
-var channelID = "600565180308520962"; // debug purposes on test server
-var kimiID = "149142344275329024";
-var aultID = "178686013441441792";
-var akioID = "208418156337692673";
 
 client.on('ready', () => {
     client.user.setActivity('Exos Heroes', {
@@ -14,11 +10,7 @@ client.on('ready', () => {
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
 
-    var generalChannel = client.channels.cache.get("716153499892711454") // Replace with known channel ID
-    //generalChannel.send("Hello, world!")
-
-    //generalChannel.send("<@" + akioID + ">" + ' Hi');
-    //generalChannel.send("<@&" + "739908848030187571" + ">" + ' Hello');
+    var generalChannel = client.channels.cache.get("channel_ID") // Replace with known channel ID
 })
 
 var cron = require("cron");
@@ -27,7 +19,7 @@ let squadBattle = new cron.CronJob('00 00 21 * * 1-6', () => {
     // reminder at 9pm pst every mon - sat to finish squad battle
     let channel = client.channels.cache.get(channelID);
     // ping all users in channel
-    channel.send("<@" + "716152988435087370" + ">" + ' Remember to finish your squad battle~');
+    channel.send("<@" + "channel_ID" + ">" + ' Remember to finish your squad battle~');
 });
 squadBattle.start();
 
@@ -35,7 +27,7 @@ let squadReg = new cron.CronJob('00 00 13 * * 0 ', () => {
     // reminder for squad battle enrollment every sunday at 1 pm pst
     let channel = client.channels.cache.get(channelID);
     // ping only deputy master and deputy first mate
-    channel.send("<@" + aultID + ">" + ' ' + "<@" + kimiID + ">" + ' Please get us enrolled in squad battles~');
+    channel.send("<@" + user_ID + ">" + ' ' + "<@" + user_ID + ">" + ' Please get us enrolled in squad battles~');
 });
 squadReg.start();
 
@@ -127,4 +119,4 @@ function tCommand(args, rmsg) {
         rmsg.channel.send("Error, too many arguments.");
     }
 }
-client.login("NzM5NzA0MDY3ODQwMDE2NTA1.XyeVGA.XqrsBkjAodzfRo1T6hJ7HFmntMg")
+client.login("your_token_ID")
